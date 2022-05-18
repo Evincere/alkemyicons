@@ -56,7 +56,7 @@ class PaisEntity {
             name = "icon_pais",
             joinColumns = @JoinColumn(name = "pais_id"),
             inverseJoinColumns = @JoinColumn(name = "icon_id"))
-    private Set<IconEntity> icons = new HashSet<>();
+    private Set<IconEntity> listIcons = new HashSet<>();
 
     private boolean deleted = Boolean.FALSE;
 }

@@ -15,8 +15,6 @@ import org.hibernate.annotations.Where;
 @Table(name = "continente")
 @Getter
 @Setter
-@SQLDelete(sql = "UPDATE continente SET deleted = true WHERE id = ?")
-@Where(clause = "deleted = false")
 class ContinenteEntity {
     
     @Id
@@ -24,5 +22,4 @@ class ContinenteEntity {
     private long id;
     private String imagen;
     private String denominacion;
-    private boolean deleted = Boolean.FALSE;
 }

@@ -42,9 +42,9 @@ public class IconEntity {
     
     private String historia;
     
-    private boolean deleted = Boolean.FALSE;
+    @ManyToMany(mappedBy = "listIcons", cascade = CascadeType.ALL)
+    private List<PaisEntity> listPaises = new ArrayList<>();
     
-    @ManyToMany(mappedBy = "icons", cascade = CascadeType.ALL)
-    private List<PaisEntity> paises = new ArrayList<>();
+    private boolean deleted = Boolean.FALSE;
     
 }
