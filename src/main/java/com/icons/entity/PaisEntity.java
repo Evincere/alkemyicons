@@ -40,13 +40,15 @@ class PaisEntity {
 
     private Long superficie;// m2
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "continente_id", insertable = false, updatable = false)
+    //uno o muchos paises van a corresponder a solo un continente
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE}) //inicializacion de tipo temprana (fetch tipo EAGER)
+    @JoinColumn(name = "continente_id", insertable = false, updatable = false)              //cuando se pida un pais si o si va a volver con su continente
     private ContinenteEntity continente;
 
     @Column(name = "continente_id", nullable = false)
     private Long continenteId;
 
+    
     @ManyToMany(
             cascade = {
                     CascadeType.PERSIST,

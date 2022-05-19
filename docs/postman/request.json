@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "1a04ce11-04cf-4395-a795-a4f1793a339f",
+		"name": "Alkemy-Icons",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "continentes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "continentes",
+					"host": [
+						"continentes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "continentes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/continentes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"continentes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
