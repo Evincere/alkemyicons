@@ -4,6 +4,8 @@ package com.icons.mapper;
 import com.icons.dto.ContinenteDTO;
 import org.springframework.stereotype.Component;
 import com.icons.entity.ContinenteEntity;
+import java.util.ArrayList;
+import java.util.List;
 @Component
 public class ContinenteMapper {
     
@@ -21,4 +23,20 @@ public class ContinenteMapper {
         dto.setDenominacion(entity.getDenominacion());
         return dto;
     }
+    
+    public List<ContinenteDTO> continenteListEntity2DTO(List<ContinenteEntity> entities){
+        List<ContinenteDTO> dtos = new ArrayList<>();
+        for(ContinenteEntity entity : entities){
+            dtos.add(this.continenteEntity2DTO(entity));
+        }
+        return dtos;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 }
