@@ -43,7 +43,7 @@ public class IconEntity {
     private String historia;
     
     @ManyToMany(mappedBy = "listIcons", cascade = CascadeType.ALL)
-    private List<PaisEntity> listPaises = new ArrayList<>();
+    private List<CityEntity> listPaises = new ArrayList<>();
     
     private boolean deleted = Boolean.FALSE;
     
