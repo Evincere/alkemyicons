@@ -15,7 +15,7 @@ import org.hibernate.annotations.Where;
 @Table(name = "continente")
 @Getter
 @Setter
-class ContinenteEntity {
+public class ContinenteEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

@@ -26,7 +26,7 @@ import org.hibernate.annotations.Where;
 @Setter
 @SQLDelete(sql = "UPDATE pais SET deleted = true WHERE id = ?")
 @Where(clause = "deleted = false")
-class PaisEntity {
+public class PaisEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
