@@ -14,8 +14,7 @@ public class IconMapper {
     
     public IconEntity iconDTO2Entity(IconDTO dto){
         IconEntity entity = new IconEntity();
-        
-        entity.setDeleted(false);
+//        entity.setDeleted(false);
         entity.setImagen(dto.getImagen());
         entity.setDenominacion(dto.getDenominacion());
         entity.setFechaCreacion(dto.getFechaCreacion());
@@ -28,9 +27,8 @@ public class IconMapper {
 
     public IconDTO iconEntity2DTO(IconEntity entity) {
         IconDTO dto = new IconDTO();
-        
+//        dto.setDeleted(false);
         dto.setId(entity.getId());
-        dto.setDeleted(false);
         dto.setImagen(entity.getImagen());
         dto.setDenominacion(entity.getDenominacion());
         dto.setFechaCreacion(entity.getFechaCreacion());

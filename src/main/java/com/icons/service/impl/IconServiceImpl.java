@@ -39,6 +39,10 @@ public class IconServiceImpl implements IconService{
         List<IconDTO> dtos = mapper.iconListEntity2DTO(entities);
         return dtos;
     }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
     
   
     
