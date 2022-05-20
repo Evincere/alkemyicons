@@ -4,6 +4,7 @@ package com.icons.dto;
 import com.icons.entity.ContinenteEntity;
 import com.icons.entity.IconEntity;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,5 +19,5 @@ public class CityDTO {
     private Long cantidadHabitantes;
     private Long superficie;
     private Long continenteId;
-    private Set<IconEntity> listIcons = new HashSet<>();
+    private List<IconDTO> listIcons;
 }

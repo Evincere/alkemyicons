@@ -15,30 +15,31 @@ import org.springframework.stereotype.Service;
 public class CityServiceImpl implements CityService{
     
     @Autowired
-    CityRepository repository;
+    private CityRepository cityRepository;
     @Autowired
-    CityMapper mapper;
+    private CityMapper cityMapper;
     
     
-    public CityDTO save(CityDTO city){
-        CityEntity entitySaved = repository.save(mapper.cityDTO2Entity(city));
-        CityDTO dtoSaved = mapper.cityEntity2DTO(entitySaved);
-        return dtoSaved;
+    public CityDTO save(CityDTO dto){
+        CityEntity entity = cityMapper.cityDTO2Entity(dto, true);
+        CityEntity entitySaved = cityRepository.save(entity);
+        CityDTO result = cityMapper.cityEntity2DTO(entitySaved, true);
+        return result;
     }
 
     public List<CityBasicDTO> getAllCitiesBasic() {
-        List<CityEntity> entities = repository.findAll();
-        List<CityBasicDTO> dtos = mapper.cityListEntityBasic2DTO(entities);
+        List<CityEntity> entities = cityRepository.findAll();
+        List<CityBasicDTO> dtos = cityMapper.cityListEntityBasic2DTO(entities);
         return dtos;
     }
 
     public List<CityDTO> getAllCities() {
-        List<CityEntity> entities = repository.findAll();
-        List<CityDTO> dtos = mapper.cityListEntity2DTO(entities);
-        return dtos;
+        List<CityEntity> entities = cityRepository.findAll();
+        List<CityDTO> result = cityMapper.cityEntityList2DTOList(entities, true);
+        return result;
     }
 
     public void delete(Long id) {
-        repository.deleteById(id);
+        cityRepository.deleteById(id);
     }
 }

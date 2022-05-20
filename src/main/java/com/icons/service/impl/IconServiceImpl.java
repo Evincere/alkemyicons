@@ -15,33 +15,34 @@ import org.springframework.stereotype.Service;
 public class IconServiceImpl implements IconService{
 
     @Autowired
-    IconRepository repository;
+    IconRepository iconRepository;
     
     @Autowired
-    IconMapper mapper;
+    IconMapper iconMapper;
   
     
     public IconDTO save(IconDTO dto) {
-        IconEntity iconSaved = repository.save(mapper.iconDTO2Entity(dto));
-        IconDTO IconDTOSaved = mapper.iconEntity2DTO(iconSaved);
-        return IconDTOSaved;
+        IconEntity entity = iconMapper.iconDTO2Entity(dto, true);
+        IconEntity entitySaved = iconRepository.save(entity);
+        IconDTO result = iconMapper.iconEntity2DTO(entitySaved, true);
+        return result;
     }
 
     
     public List<IconBasicDTO> getAllBasicIcons() {
-        List<IconEntity> entities = repository.findAll();
-        List<IconBasicDTO> dtos = mapper.iconListEntityBasic2DTO(entities);
+        List<IconEntity> entities = iconRepository.findAll();
+        List<IconBasicDTO> dtos = iconMapper.iconListEntityBasic2DTO(entities);
         return dtos;
     }
 
     public List<IconDTO> getAllIcons() {
-        List<IconEntity> entities = repository.findAll();
-        List<IconDTO> dtos = mapper.iconListEntity2DTO(entities);
-        return dtos;
+        List<IconEntity> entities = iconRepository.findAll();
+        List<IconDTO> result = iconMapper.iconEntitySet2DTOList(entities, false);
+        return result;
     }
 
     public void delete(Long id) {
-        repository.deleteById(id);
+        iconRepository.deleteById(id);
     }
     
   

@@ -4,7 +4,9 @@ package com.icons.dto;
 import com.icons.entity.CityEntity;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,5 +21,5 @@ public class IconDTO {
     private LocalDate fechaCreacion;
     private Long altura;
     private String historia;
-    private List<CityEntity> listPaises = new ArrayList<>();
+    private List<CityDTO> listPaises;
 }
