@@ -7,6 +7,8 @@ import com.icons.dto.IconDTO;
 import com.icons.entity.CityEntity;
 import com.icons.entity.IconEntity;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,5 +83,16 @@ public class CityMapper {
             paisEntities.add(cityDTO2Entity(dto, true));
         }
         return paisEntities;
+    }
+
+    public void paisEntityRefreshValues(CityEntity entity, CityDTO cityDTO) {
+      entity.setDenominacion(cityDTO.getDenominacion());
+      entity.setImagen(cityDTO.getImagen());
+      entity.setContinenteId(cityDTO.getContinenteId());
+      entity.setCantidadHabitantes(cityDTO.getCantidadHabitantes());
+      entity.setSuperficie(cityDTO.getSuperficie());
+      for(IconDTO item : cityDTO.getListIcons()){
+         entity.getListIcons().add(iconMapper.iconDTO2Entity(item, false)); 
+      }
     }
 }

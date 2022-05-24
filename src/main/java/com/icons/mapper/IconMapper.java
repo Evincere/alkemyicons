@@ -42,10 +42,10 @@ public class IconMapper {
         dto.setFechaCreacion(entity.getFechaCreacion());
         dto.setAltura(entity.getAltura());
         dto.setHistoria(entity.getHistoria());
-        
         if(loadCities){
             List<CityDTO> citiesDTO = cityMapper.cityEntityList2DTOList(entity.getListPaises(), false);
             dto.setListPaises(citiesDTO);
+            
         }
         
         return dto;
@@ -83,5 +83,14 @@ public class IconMapper {
             entities.add(iconDTO2Entity(dto, false));
         }
         return entities;
+    }
+
+    public void iconEntityRefreshValues(IconEntity entity, IconDTO dto) {
+        entity.setImagen(dto.getImagen());
+        entity.setDenominacion(dto.getDenominacion());
+        entity.setFechaCreacion(dto.getFechaCreacion());
+        entity.setAltura(dto.getAltura());
+        entity.setHistoria(dto.getHistoria());
+        
     }
 }

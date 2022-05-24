@@ -4,10 +4,12 @@ package com.icons.service.impl;
 import com.icons.dto.IconBasicDTO;
 import com.icons.dto.IconDTO;
 import com.icons.entity.IconEntity;
+import com.icons.exceptions.ParamNotFound;
 import com.icons.mapper.IconMapper;
 import com.icons.repository.IconRepository;
 import com.icons.service.IconService;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +45,18 @@ public class IconServiceImpl implements IconService{
 
     public void delete(Long id) {
         iconRepository.deleteById(id);
+    }
+
+    public IconDTO update(Long id, IconDTO dto) {
+        Optional<IconEntity> entity = iconRepository.findById(id);
+        if (!entity.isPresent()) {
+            throw new ParamNotFound("Error: Id de pais no válido");
+        }
+        iconMapper.iconEntityRefreshValues(entity.get(), dto);
+        IconEntity entitySaved = iconRepository.save(entity.get());
+        IconDTO result = iconMapper.iconEntity2DTO(entitySaved, false);
+        return result;
+
     }
     
   

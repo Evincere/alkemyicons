@@ -15,6 +15,12 @@ public interface CityService {
     List<CityDTO> getAllCities();
 
     void delete(Long id);
+
+    CityDTO getOne(Long id);
+
+    CityDTO update(Long id, CityDTO cityDTO);
+
+   
     
     
 }

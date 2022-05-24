@@ -31,6 +31,11 @@ public class ContinenteMapper {
         }
         return dtos;
     }
+
+    public void continenteEntityRefreshValues(ContinenteEntity entity, ContinenteDTO dto) {
+        entity.setImagen(dto.getImagen());
+        entity.setDenominacion(dto.getDenominacion());
+    }
     
     
     

@@ -61,4 +61,11 @@ public class CityEntity {
     private Set<IconEntity> listIcons = new HashSet<>();
 
     private boolean deleted = Boolean.FALSE;
+
+    @Override
+    public String toString() {
+        return "CityEntity{" + "id=" + id + ", imagen=" + imagen + ", denominacion=" + denominacion + ", cantidadHabitantes=" + cantidadHabitantes + ", superficie=" + superficie + ", continente=" + continente + ", continenteId=" + continenteId + ", listIcons=" + listIcons + ", deleted=" + deleted + '}';
+    }
+    
+    
 }

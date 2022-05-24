@@ -15,4 +15,6 @@ public interface IconService {
     List<IconDTO> getAllIcons();
 
     void delete(Long id);
+
+    IconDTO update(Long id, IconDTO dto);
 }

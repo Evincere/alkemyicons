@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,5 +51,11 @@ public class IconController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
     
+    //V. endpoint para actualizar un icon
+    @PutMapping("/{id}")
+    public ResponseEntity<IconDTO> update(@PathVariable Long id, @RequestBody IconDTO dto){
+        IconDTO result = iconService.update(id,dto);
+        return ResponseEntity.ok().body(result);
+    }
     
 }
