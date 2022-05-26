@@ -69,10 +69,10 @@ public class IconMapper {
         return iconBasic;
     }
 
-    public List<IconDTO> iconEntitySet2DTOList(Collection<IconEntity> entities, boolean loadIcons) {
+    public List<IconDTO> iconEntitySet2DTOList(Collection<IconEntity> entities, boolean loadCities) {
         List<IconDTO> dtos = new ArrayList<>();
         for(IconEntity entity : entities){
-            dtos.add(this.iconEntity2DTO(entity,loadIcons));
+            dtos.add(this.iconEntity2DTO(entity,loadCities));
         }
         return dtos;
     }

@@ -44,7 +44,7 @@ public class CityMapper {
         dtoSaved.setCantidadHabitantes(entitySaved.getCantidadHabitantes());
         dtoSaved.setSuperficie(entitySaved.getSuperficie());
         if(loadIcons){
-            List<IconDTO> iconDTOS = iconMapper.iconEntitySet2DTOList(entitySaved.getListIcons(), false);
+            List<IconDTO> iconDTOS = iconMapper.iconEntitySet2DTOList(entitySaved.getListIcons(), true);
             dtoSaved.setListIcons(iconDTOS);
         }
         return dtoSaved;

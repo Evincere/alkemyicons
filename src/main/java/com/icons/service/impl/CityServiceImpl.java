@@ -47,7 +47,7 @@ public class CityServiceImpl implements CityService{
     }
 
     public CityDTO getOne(Long id) {
-        CityDTO dto = cityMapper.cityEntity2DTO(cityRepository.getById(id), false);
+        CityDTO dto = cityMapper.cityEntity2DTO(cityRepository.getById(id), true);
         return dto;
     }
     
