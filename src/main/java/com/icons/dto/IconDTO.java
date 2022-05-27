@@ -1,12 +1,8 @@
 
 package com.icons.dto;
 
-import com.icons.entity.CityEntity;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,10 +11,9 @@ import lombok.Setter;
 public class IconDTO {
     
     private Long id;
-    private boolean deleted = Boolean.FALSE;
     private String imagen;
     private String denominacion;
-    private LocalDate fechaCreacion;
+    private String fechaCreacion;
     private Long altura;
     private String historia;
     private List<CityDTO> listPaises;

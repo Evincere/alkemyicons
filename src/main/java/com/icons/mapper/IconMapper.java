@@ -6,6 +6,8 @@ import com.icons.dto.IconBasicDTO;
 import com.icons.dto.IconDTO;
 import com.icons.entity.CityEntity;
 import com.icons.entity.IconEntity;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -24,7 +26,7 @@ public class IconMapper {
         IconEntity entity = new IconEntity();
         entity.setImagen(dto.getImagen());
         entity.setDenominacion(dto.getDenominacion());
-        entity.setFechaCreacion(dto.getFechaCreacion());
+        entity.setFechaCreacion(string2LocalDate(dto.getFechaCreacion()));
         entity.setAltura(dto.getAltura());
         entity.setHistoria(dto.getHistoria());
         if (loadPaises) {
@@ -39,34 +41,27 @@ public class IconMapper {
         dto.setId(entity.getId());
         dto.setImagen(entity.getImagen());
         dto.setDenominacion(entity.getDenominacion());
-        dto.setFechaCreacion(entity.getFechaCreacion());
+        dto.setFechaCreacion(entity.getFechaCreacion().toString());
         dto.setAltura(entity.getAltura());
         dto.setHistoria(entity.getHistoria());
         if(loadCities){
             List<CityDTO> citiesDTO = cityMapper.cityEntityList2DTOList(entity.getListPaises(), false);
             dto.setListPaises(citiesDTO);
-            
         }
-        
         return dto;
-
     }
 
-    public List<IconBasicDTO> iconListEntityBasic2DTO(List<IconEntity> entities) {
+    public List<IconBasicDTO> iconEntitySet2BasicDTOList(Collection<IconEntity> entities) {
         List<IconBasicDTO> dtos = new ArrayList<>();
-        for(IconEntity entity : entities){
-            dtos.add(this.iconEntity2BasicDTO(entity));
+        IconBasicDTO basicDTO;
+        for (IconEntity entity : entities) {
+            basicDTO = new IconBasicDTO();
+            basicDTO.setId(entity.getId());
+            basicDTO.setImagen(entity.getImagen());
+            basicDTO.setDenominacion(entity.getDenominacion());
+            dtos.add(basicDTO);
         }
         return dtos;
-    }
-
-
-    private IconBasicDTO iconEntity2BasicDTO(IconEntity entity) {
-        IconBasicDTO iconBasic = new IconBasicDTO();
-        iconBasic.setId(entity.getId());
-        iconBasic.setDenominacion(entity.getDenominacion());
-        iconBasic.setImagen(entity.getImagen());
-        return iconBasic;
     }
 
     public List<IconDTO> iconEntitySet2DTOList(Collection<IconEntity> entities, boolean loadCities) {
@@ -88,9 +83,15 @@ public class IconMapper {
     public void iconEntityRefreshValues(IconEntity entity, IconDTO dto) {
         entity.setImagen(dto.getImagen());
         entity.setDenominacion(dto.getDenominacion());
-        entity.setFechaCreacion(dto.getFechaCreacion());
+        entity.setFechaCreacion(string2LocalDate(dto.getFechaCreacion()));
         entity.setAltura(dto.getAltura());
         entity.setHistoria(dto.getHistoria());
         
+    }
+    
+    private LocalDate string2LocalDate(String stringDate) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate date = LocalDate.parse(stringDate, formatter);
+        return date;
     }
 }
