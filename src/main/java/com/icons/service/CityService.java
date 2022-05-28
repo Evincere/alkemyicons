@@ -20,6 +20,8 @@ public interface CityService {
 
     CityDTO update(Long id, CityDTO cityDTO);
 
+    List<CityDTO> getByFilters(String denominacion, Long idContinente, String order);
+
    
     
     

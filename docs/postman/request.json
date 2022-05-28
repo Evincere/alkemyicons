@@ -2,41 +2,535 @@
 	"info": {
 		"_postman_id": "1a04ce11-04cf-4395-a795-a4f1793a339f",
 		"name": "Alkemy-Icons",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18095139"
 	},
 	"item": [
 		{
 			"name": "continentes",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "continentes",
-					"host": [
-						"continentes"
-					]
+			"item": [
+				{
+					"name": "/continentes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imagen\": \"/usr/tmp/America.jpg\",\r\n    \"denominacion\": \"America\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/continentes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"continentes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/continentes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/continentes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"continentes"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "continente/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/continentes/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"continentes",
+								""
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "continentes",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/continentes",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"continentes"
-					]
+			"name": "cities",
+			"item": [
+				{
+					"name": "/cities",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imagen\": \"/usr/tmp/chile.jpg\",\r\n    \"denominacion\": \"Chile\",\r\n    \"cantidadHabitantes\": 19000000,\r\n    \"superficie\": 756000,\r\n    \"continenteId\": 1,\r\n    \"listIcons\": [\r\n        {\r\n            \"imagen\": \"/usr/tmp/Moais.jpg\",\r\n            \"denominacion\": \"Moais\",\r\n            \"fechaCreacion\": \"2021-11-01\",\r\n            \"altura\": 3,\r\n            \"historia\": \"Estatuas monolíticas humanoides ubicadas en la isla de Pascua\"\r\n        },\r\n        {\r\n            \"imagen\": \"/usr/tmp/hand.jpg\",\r\n            \"denominacion\": \"Mano del Desierto\",\r\n            \"fechaCreacion\": \"2021-11-01\",\r\n            \"altura\": 11,\r\n            \"historia\": \" ubicada a 75 km al sur de la ciudad de Antofagasta\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cities",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cities/all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cities/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"all"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cities/details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cities/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cities/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cities/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cities/filters?name=denominacion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cities/filters?name=Chile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"filters"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Chile"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cities/filters?idContinente=#",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cities/filters?idContinente=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"filters"
+							],
+							"query": [
+								{
+									"key": "idContinente",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cities/filters?order=ASC",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cities/filters?order=ASC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"filters"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cities/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cities/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/cities/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"imagen\":\"/usr/tmp/chile.jpg\", \n    \"denominacion\":\"Esto es lo ultimo\", \n    \"cantidadHabitantes\":\"19000000\", \n    \"superficie\":\"756000\", \n    \"continente\":\"\", \n    \"continenteId\":\"1\", \n    \"listIcons\":[\n        {\n               \n                \"deleted\": false,\n                \"imagen\": \"/usr/tmp/hand.jpg\",\n                \"denominacion\": \"Obelisco\",\n                \"fechaCreacion\": \"2021-11-01\",\n                \"altura\": 11,\n                \"historia\": \"uires\",\n                \"listPaises\": null\n            }\n    ],\n    \"deleted\":\"false\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cities/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cities",
+								"2"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "icons",
+			"item": [
+				{
+					"name": "/icons",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"imagen\": \"/usr/tmp/Obelisco.jpg\",\r\n        \"denominacion\": \"Obelisco\",\r\n        \"fechaCreacion\": \"2021-11-02\",\r\n        \"altura\": 68,\r\n        \"historia\": \"Monumento histórico considerado un ícono de la Ciudad Autónoma de Buenos Aires, Argentina, construido en 1936 con motivo del cuarto centenario de la llamada primera fundación de Buenos Aires. \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/icons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"icons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "icons",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/icons/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"icons",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/icons/details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/icons/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"icons",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/icons/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/icons/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"icons",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/icons/filters?cities=cityId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/icons/filters?cities=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"icons",
+								"filters"
+							],
+							"query": [
+								{
+									"key": "cities",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/icons/filters?date=yyyy-MM-dd",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/icons/filters?date=2021-11-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"icons",
+								"filters"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2021-11-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/icons/filters?cities=cityId Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/icons/filters?order=asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"icons",
+								"filters"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/icons/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"imagen\": \"/usr/tmp/Obelisco.jpg\",\r\n        \"denominacion\": \"Obelisco\",\r\n        \"fechaCreacion\": \"1936-05-23\",\r\n        \"altura\": 68,\r\n        \"historia\": \"Monumento histórico considerado un ícono de la Ciudad Autónoma de Buenos Aires, Argentina, construido en 1936 con motivo del cuarto centenario de la llamada primera fundación de Buenos Aires por Pedro de Mendoza.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/icons/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"icons",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/icons/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/icons/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"icons",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
