@@ -1,11 +1,7 @@
 
 package com.icons.dto;
 
-import com.icons.entity.ContinenteEntity;
-import com.icons.entity.IconEntity;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 
