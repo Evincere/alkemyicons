@@ -4,6 +4,7 @@ package com.icons.auth.service;
 import com.icons.auth.dto.UserDTO;
 import com.icons.auth.entity.UserEntity;
 import com.icons.auth.repository.UserRepository;
+import com.icons.service.EmailService;
 import java.util.Collections;
 import static jdk.internal.util.StaticProperty.userName;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ public class UserDetailsCustomService implements UserDetailsService{
 
     @Autowired
     private UserRepository userRepository;
-//    @Autowired
-//    private EmailService emailService;
+    @Autowired
+    private EmailService emailService;
     
     
     @Override
@@ -36,9 +37,9 @@ public class UserDetailsCustomService implements UserDetailsService{
         userEntity.setUsername(userDTO.getUsername());
         userEntity.setPassword(userDTO.getPassword());
         userEntity = this.userRepository.save(userEntity);
-//        if(userEntity != null){
-//            emailService.sendWelcomeEmailTo(userEntity.getUsername());
-//        }
+        if(userEntity != null){
+            emailService.sendWelcomeEmailTo(userEntity.getUsername());
+        }
         return userEntity != null;
     }
     
