@@ -7,8 +7,6 @@ import com.icons.dto.IconDTO;
 import com.icons.entity.CityEntity;
 import com.icons.entity.IconEntity;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;

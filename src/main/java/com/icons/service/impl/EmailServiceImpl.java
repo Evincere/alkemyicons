@@ -16,33 +16,32 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmailServiceImpl implements EmailService{
+public class EmailServiceImpl implements EmailService {
 
     @Autowired
     private Environment env;
-    
+
     @Value("${com.icons.email.sender}")
     private String emailSender;
-    
+
     @Value("${com.icons.email.enabled}")
     private boolean enabled;
-    
-    public void sendWelcomeEmailTo(String to){
-        if(!enabled){
+
+    public void sendWelcomeEmailTo(String to) {
+        if (!enabled) {
             return;
         }
-//        String apiKey = env.getProperty("EMAIL_API_KEY");
-        String apiKey = "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";
-        
+        // String apiKey = env.getProperty("EMAIL_API_KEY");
+        String apiKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
         Email fromEmail = new Email(emailSender);
         Email toEmail = new Email(to);
         Content content = new Content(
                 "text/plain",
-                "Bienvenido/a a Icons Alkemy"
-        );
+                "Bienvenido/a a Icons Alkemy");
         String subject = "Semper Icons";
-        
-        Mail mail = new Mail (fromEmail,subject,toEmail, content);
+
+        Mail mail = new Mail(fromEmail, subject, toEmail, content);
         SendGrid sg = new SendGrid(apiKey);
         Request request = new Request();
         try {
@@ -53,5 +52,5 @@ public class EmailServiceImpl implements EmailService{
         } catch (IOException e) {
             System.out.println("Error trying to send the email");
         }
-        }
+    }
 }
